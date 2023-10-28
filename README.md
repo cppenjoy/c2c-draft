@@ -36,5 +36,5 @@ pip install mkdocs
 
 Build the doc for c2c
 ```
-soon.....
+mkdocs serve
 ```
