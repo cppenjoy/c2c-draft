@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://c2c_docs.com/start/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Let's get started - C2C Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Let\u0027s get started";
+        var mkdocs_page_input_path = "start.md";
+        var mkdocs_page_url = "/start/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> C2C Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Let's get started</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#basics">Basics</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#imperative-programming">Imperative programming</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#type-system">Type System</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#static-or-dynamic">Static or dynamic</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#strong-or-weak">Strong or weak</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#explicit-or-implicit">Explicit or Implicit</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#type-system-in-c2c">Type System in C2C</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#data-types">Data Types</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#bcl-data-types">BCL Data Types</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#suffixes-of-integer-types">Suffixes of integer types</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#rules-for-explicit-transformations">Rules for explicit transformations</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">C2C Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li class="breadcrumb-item active">Let's get started</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="lets-get-started">Let's get started</h1>
+<h2 id="basics">Basics</h2>
+<p>The main paradigm of C2C is imperative programming. Therefore, if you have previously had experience with languages such as C, C++, Rust, C#, JavaScript, Go, Java, Kotlin, it will be much easier for you to get used to</p>
+<p>If you are a beginner who had no previous experience with imperative programming, then read this chapter, if you are an advanced user, then skip it, you will not learn anything new</p>
+<h3 id="imperative-programming">Imperative programming</h3>
+<ul>
+<li>The program consists of instructions that tell the processor what to do</li>
+<li>Instructions are executed linearly or in other words one after the other</li>
+<li>The data obtained by the previous instruction can be used by the following instruction</li>
+</ul>
+<p>For example, here are pseudo-assembly instructions</p>
+<pre><code>DECLARE_VAR B
+MOV B, 1
+ADD B, 3
+</code></pre>
+<p>In this code, we create a variable B, assign it the value 1, and save the result of adding variables B and 3 to variable B
+All instructions are executed one after another, we know about the order of execution of instructions</p>
+<h3 id="type-system">Type System</h3>
+<p>Type System is a set of rules in programming languages that assign properties, called types, to various constructs that make up a program - such as variables, expressions, functions or modules. The main role of the type system is to reduce the number of bugs in programs by defining interfaces between different parts of the program and then checking the consistency of the interaction of these parts</p>
+<p>Typing has three main properties: </p>
+<ul>
+<li>
+<p>Static or dynamic </p>
+</li>
+<li>
+<p>Strong or weak </p>
+</li>
+<li>
+<p>Explicit or Implicit</p>
+</li>
+</ul>
+<h4 id="static-or-dynamic">Static or dynamic</h4>
+<p>Static or dynamic is a technique widely used in programming languages, in which a variable, a subroutine parameter, a function return value are associated with a type at the time of declaration and the type cannot be changed later (the variable or parameter will accept, and the function will return values of this type only).</p>
+<p>Examples of statically typed languages: Ada, C, C++, C#, D, Java, ML, Pascal, Solidity, Go
+Examples of dynamic typed languages: JavaScript, Python</p>
+<h4 id="strong-or-weak">Strong or weak</h4>
+<p>Strong or weak is a characteristic of the type system of a programming language, which reflects significant restrictions on type casting during assignments and operations. Strong - does not allow ghosts, weak - allows</p>
+<h4 id="explicit-or-implicit">Explicit or Implicit</h4>
+<p>Explicit — the data type for entities is explicitly written in the program.</p>
+<p>Implicit — the data type can be omitted. Implicit typing is primarily characteristic of dynamically typed languages. In statically typed languages, it is used in conjunction with type inference</p>
+<h3 id="type-system-in-c2c">Type System in C2C</h3>
+<p>The C2C language offers static, strong, explicit type system. Below is a table of data types</p>
+<h4 id="data-types">Data Types</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Min Value</th>
+<th>Max Value</th>
+<th>Note</th>
+<th>Aliases</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void</td>
+<td>nullptr</td>
+<td>nullptr</td>
+<td><em>It is an incomplete type that cannot be completed</em></td>
+<td>There are no aliases</td>
+</tr>
+<tr>
+<td>char</td>
+<td>-128</td>
+<td>127</td>
+<td><em>It takes 1 byte on all platforms, so sizeof(char) = 1</em>.</td>
+<td>There are no aliases</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>0</td>
+<td>1</td>
+<td><em>It takes 1 byte on all platforms, so sizeof(bool) = 1</em></td>
+<td>There are no aliases</td>
+</tr>
+<tr>
+<td>int16</td>
+<td>-32,768</td>
+<td>32 767</td>
+<td><em>There are no notes</em></td>
+<td>short</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>-2 147 483 648</td>
+<td>2 147 483 647</td>
+<td><em>There are no notes</em></td>
+<td>int</td>
+</tr>
+<tr>
+<td>int64</td>
+<td>-9 223 372 036 854 775 808</td>
+<td>9 223 372,036,854,775,807</td>
+<td><em>There are no notes</em></td>
+<td>long</td>
+</tr>
+</tbody>
+</table>
+<p>Each integer type offers an unsigned version</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Min Value</th>
+<th>Max Value</th>
+<th>Note</th>
+<th>Aliases</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uchar</td>
+<td>0</td>
+<td>255</td>
+<td><em>It takes 1 byte on all platforms, so sizeof(char) = 1</em>.</td>
+<td>unsigned char</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>0</td>
+<td>65 535</td>
+<td><em>There are no notes</em></td>
+<td>unsigned short</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>0</td>
+<td>4 294 967 295</td>
+<td><em>There are no notes</em></td>
+<td>unsigned int</td>
+</tr>
+<tr>
+<td>uint64</td>
+<td>0</td>
+<td>18 446 744 073 709 551 615</td>
+<td><em>There are no notes</em></td>
+<td>unsigned long</td>
+</tr>
+</tbody>
+</table>
+<h4 id="bcl-data-types">BCL Data Types</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>string</td>
+<td><em>Is an interface to std::vector<char></em></td>
+</tr>
+<tr>
+<td>date</td>
+<td><em>Type for interaction with time</em></td>
+</tr>
+</tbody>
+</table>
+<p>You will learn more about bcl(Base Class Library) in Chapter 3</p>
+<h4 id="suffixes-of-integer-types">Suffixes of integer types</h4>
+<p>Each integer literal has an int32 type by default, you can explicitly specify the literal type using prefixes. The table of prefixes is shown below</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Suffix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s</td>
+<td>int16</td>
+</tr>
+<tr>
+<td>i</td>
+<td>int32</td>
+</tr>
+<tr>
+<td>l</td>
+<td>int64</td>
+</tr>
+<tr>
+<td>us</td>
+<td>uint16</td>
+</tr>
+<tr>
+<td>ui</td>
+<td>uint32</td>
+</tr>
+<tr>
+<td>ul</td>
+<td>uint64</td>
+</tr>
+</tbody>
+</table>
+<p>Code Examples</p>
+<pre><code class="language-c">int some_integer_var = i10; // OK
+int second_integer_var = 10; // OK, typeof(10) = int32
+int64 primary_integer_var = 5; // Error, typeof(int64) != typeof(int32)
+</code></pre>
+<h4 id="rules-for-explicit-transformations">Rules for explicit transformations</h4>
+<p>If you want to cast one data type to another, then the C2C language offers you three casting operators</p>
+<ul>
+<li>safe_cast&lt;T&gt;(v)</li>
+<li>subtype_cast&lt;T&gt;(v)</li>
+</ul>
+<h5 id="safe-cast">Safe Cast</h5>
+<pre><code>Syntax
+</code></pre>
+<pre><code>    safe_cast&lt;T&gt;(v)
+
+    Where T is the type to be cast into, and v is the expression
+</code></pre>
+<p>Returns an expression to type if one of this condition satisfied:</p>
+<ul>
+<li>Type of T and type of expression v are number types (integers type, floating point types)</li>
+<li>T is pointer to void, and the expression type is a pointer to a number types</li>
+<li>T is a pointer to a number type, and type of expression is a pointer to void</li>
+</ul>
+<p>If a floating-point number is reduced to an integer, then the fractional part is discarded
+If an integer is reduced to a floating-point number, then the fractional part is added to the number in the form .0</p>
+<p>Code Example</p>
+<pre><code class="language-c">float pi = 3.14;
+int p = safe_cast&lt;int&gt;(pi); // OK, p = 3
+
+char c = safe_cast&lt;char&gt;(true); // OK, true is representation of 1
+bool exist = safe_cast&lt;bool&gt;(c); // OK, exist = true
+
+double speed = safe_cast&lt;double&gt;(&quot;30.0&quot;); // Error, &quot;30.0&quot; - pointer to char
+</code></pre>
+<h5 id="subtype-cast">Subtype Cast</h5>
+<pre><code>Syntax
+</code></pre>
+<pre><code>subtype_cast&lt;T&gt;(v)
+
+Where T is the type to be cast into, and v is the expression
+</code></pre>
+<p>Converts a pointer to a derived class into a pointer to a base class or converts a pointer to a base class to a pointer to a derived class</p>
+<p>Returns an expression to type if one of this condition satisfied:</p>
+<ul>
+<li>T is pointer to base class, and v is pointer to derrived class</li>
+<li>T is pointer to derrived class, and v is pointer to base class</li>
+</ul>
+<p>Code Example</p>
+<pre><code class="language-cpp">class Base
+{};
+
+class Derrived : Base
+{};
+
+int main()
+{
+    Base *base_object = new Base;
+    Derrived *derrived_object = subtype&lt;Derrived*&gt;(base_object); // Down Cast
+
+    Base *second_base_object = subtype&lt;Base*&gt;(derrived_object); // Up Cast
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
