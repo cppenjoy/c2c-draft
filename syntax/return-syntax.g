@@ -1,0 +1,1 @@
+stmt_return -> 'return' primary_identifier ';'
