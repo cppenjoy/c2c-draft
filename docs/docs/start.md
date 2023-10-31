@@ -72,6 +72,14 @@ Each integer type offers an unsigned version
 | uint32 | 0 | 4 294 967 295 | *There are no notes* | unsigned int |
 | uint64 | 0 | 18 446 744 073 709 551 615 | *There are no notes* | unsigned long |
 
+Also C2C provides floating point types. C2C follows the IEE standard
+| Type | Min Value | Max Value | Note | Aliases |
+|-|-|-|-|-|
+| float16 | -65,504 | 65,504 | *There are no notes* | half |
+| float32 | 3.4E–38 | 3.4E+38 | *There are no notes* | float |
+| float64 | -1.79769E+308 | -2.225E-307 | *There are no notes* | double |
+| float80 | -1.7E+308 | 1.7E+3081 | *There are no notes* | long double |
+
 #### BCL Data Types
 | Type | Note |
 |-|-|
@@ -166,8 +174,54 @@ class Derrived : Base
 int main()
 {
     Base *base_object = new Base;
-    Derrived *derrived_object = subtype<Derrived*>(base_object); // Down Cast
+    Derrived *derrived_object = subtype_cast<Derrived*>(base_object); // Down Cast
 
-    Base *second_base_object = subtype<Base*>(derrived_object); // Up Cast
+    Base *second_base_object = subtype_cast<Base*>(derrived_object); // Up Cast
 }
+```
+
+##### Unsafe Cast
+    Syntax
+
+```
+unsafe_cast<T>(v)
+
+Where T is the type to be cast into, and v is the expression
+```
+
+Converts the type of expression v to type T without performing any checks. unsafe_cast is a backdoor, its use is allowed only in very special situations. It is recommended to avoid this type of conversion. This might be a trap representation.
+
+Code Example
+
+```cpp
+There is no example
+```
+
+## Program structure
+
+Each C2C program has a specific structure. We encourage you to follow the general structuring of the code to write readable and easily extensible code
+
+This chapter examines in detail: code style, formatting style, program structuring style
+
+There are two types of C2C program source files: header files, source code files.
+Header files have an extension .h, source code files have the extension .ctc
+
+```
+project/
+    bin/
+    tests/
+        message_box/
+            create_msg_box.ctc # First Test
+            destroy_msg_bot.ctc # Second Test
+
+            message_box_unit_tests.ctc # Main file of this test
+
+    docs/
+    src/
+        message_box/
+            message_box.h # Define
+            message_box.ctc # Implementation
+
+        common.h # Contains all headers whitch need from main.ctc
+        main.ctc # Contains entry point 
 ```

@@ -1,0 +1,1 @@
+block -> '{' (stmt_var_decl | stmt_if | stmt_for | stmt_while | stmt_switch | stmt_return)* '}'
