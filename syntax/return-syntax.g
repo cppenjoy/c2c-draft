@@ -1,1 +1,1 @@
-stmt_return -> 'return' primary_identifier ';'
+stmt_return -> 'return' primary_expression ';'

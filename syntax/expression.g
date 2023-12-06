@@ -1,31 +1,100 @@
-primary_expression -> (identifier | number_literal | string_literal | '(' expression ')')
 
-expression -> assign_expression (',' assign_expression)*
+primary-expression ->
+    Nested-Identifier
+    | Literal
+    | BinaryExpression
+    | UnaryExpression
 
-cast_expression -> '(' type_name ')' cast_expression
+ConditionalExpression ->
+    primary-expression (conditional-operator primary-expression)*
 
-multiplicative_expression -> cast_expression (('*'|'/'|'%') cast_expression)*
-additive_expression -> multiplicative_expression (('+'|'-') multiplicative_expression)*
-shift_expression -> additive_expression (('<<'|'>>') additive_expression)*
+conditional-operator ->
+    '!='
+    '=='
+    '&&'
+    '||'
 
-relational_expression -> shift_expression (('<'|'>'|'<='|'>=') shift_expression)*
+BinaryExpression ->
+    UnaryExpression binary-operator primary-expression
 
-equality_expression -> relational_expression (('=='| '!=') relational_expression)*
-and_expression -> equality_expression ( '&' equality_expression)*
+binary-operator ->
+    '-'
+    '+'
+    '/'
+    '*'
+    '%'
 
-exclusive_or_expression -> and_expression ('^' and_expression)*
-inclusive_or_expression -> exclusive_or_expression ('|' exclusive_or_expression)*
+    '~'
+    '&'
+    '|'
+    '!'
 
-logical_and_expression -> inclusive_or_expression ('&&' inclusive_or_expression)*
-logical_or_expression -> logical_and_expression ( '||' logical_and_expression)*
+UnaryExpression ->
+    | unary-operator Nested-Identifier
+    | CastExpression
+    | 'sizeof' sizeof-body
+    | 'decltype' decltype-body
 
-conditional_expression -> logical_or_expression ('?' expression ':' conditional_expression)?
+unary-operator -> 
+    '++'
+    | '--'
+    | '*'
+    | '&'
+    | '!'
 
-assignment_expression -> conditional_expression | (unary_expression assignment_operator assignment_expression)
-assignment_operator -> '=' | '*=' | '/=' | '%=' | '+=' | '-=' | '<<=' | '>>=' | '&=' | '^=' | '|='
+sizeof-body -> 
+    'sizeof' type-name
+    | '(' primary-expression ')'
 
-postfix_expression -> primary_expression ('[' expression ']' | '(' argument_expression_list? ') | ('.' | '->') identifier | '++' | '--')
-argument_expression_list -> assignment_expression (',' assignment_expression)*
+decltype-body -> 
+    'decltype' '(' primary-expression ')'
+ 
+CastExpression -> 
+    | reinterpret-cast
+    | static-cast
+    | dynamic-cast
 
-unary_expression -> ('++' |  '--' |  'sizeof')? (postfix_expression | unary_operator cast_expression | 'sizeof' '(' type_name ')')
-unary_operator -> '&' | '*' | '+' | '-' | '~' | '!'
+reinterpret-cast ->
+    'reinterpret_cast' cast-type
+
+static-cast ->
+    'static_cast' cast-type
+
+dynamic-cast ->
+    'dynamic_cast' cast-type
+
+cast-type -> '<' type_name '>' to-cast
+to-cast -> '(' primary-expression ')'
+
+Nested-Identifier ->
+    Identifier ('::' Identifier)*
+
+Identifier -> [azAZ_] (DIGIT+)?
+
+Literal ->
+    IntegerLiteral
+    | StringLiteral
+    | FloatLiteral
+
+IntegerLiteral -> 
+    INTEGER_SUFFIX? DIGIT+
+INTEGER_SUFFIX ->
+    [uU]
+    |    [lL]
+    |    [sS]
+    |    [wW]
+DIGIT -> [0-9]
+
+StringLiteral ->
+    STRING_SUFFIX? '+' char-sequence '"'
+
+STRING_SUFFIX ->
+    [wW]
+
+char-sequence ->
+    c-char*
+
+c-char -> [any]
+
+FloatLiteral -> 
+    DIGIT+ '.' DIGIT+ 

@@ -1,8 +1,0 @@
-site_name: C2C Documentation
-site_url: https://c2c_docs.com/
-
-nav:
-  - Home: index.md
-  - Let's get started: start.md
-
-theme: readthedocs
